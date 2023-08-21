@@ -1,0 +1,12 @@
+<header class="d-flex justify-content-between p-3">
+    <h2 class="mb-0 me-3 text-center">DevSolutions<br />Board</h2>
+    <div *ngIf="token" class="d-flex flex-wrap justify-content-end">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input class="w-100" (input)="searchHandler($event)" matInput>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <button class="mt-2 ms-3 text-nowrap" mat-raised-button color="primary" (click)="logoutHandler()">log out</button>
+    </div>
+</header>
+<ng-content></ng-content>

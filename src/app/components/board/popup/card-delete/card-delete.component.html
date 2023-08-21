@@ -1,0 +1,9 @@
+<mat-dialog-content class="mat-typography">
+    <h3>Are you show of deleting this item?</h3>
+    <p>This will delete this card permanently. you cannot undo this action</p>
+
+    <mat-dialog-actions align="end">
+        <button type="button" mat-button mat-dialog-close>Cancel</button>
+        <button type="button" (click)="deleteCardHandler()" mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Confirm</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

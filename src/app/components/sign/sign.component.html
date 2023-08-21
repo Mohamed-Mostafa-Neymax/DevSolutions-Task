@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex align-items-center justify-content-center flex-column formWrapper">
+                <h1 class="text-center">Weclome <img src="/assets/dummy-images/emoticon.png" /></h1>
+                <form 
+                    class="d-flex flex-column rounded p-3 w-100"
+                    [formGroup]="signupForm"
+                    (ngSubmit)="submitHandler()">
+                    <mat-form-field>
+                        <mat-label>Enter your username</mat-label>
+                        <input 
+                            matInput
+                            formControlName="username">
+                        <mat-error>Username is Required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="!isLoginMode">
+                        <mat-label>Enter your email</mat-label>
+                        <input 
+                            matInput
+                            formControlName="email">
+                            <mat-error>Email is Required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Enter your password</mat-label>
+                        <input 
+                            matInput 
+                            [type]="hidePassword ? 'password' : 'text'"
+                            formControlName="password">
+                        <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error>Password is Required and greater than 4 character</mat-error>
+                    </mat-form-field>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" [disabled]="signupForm.invalid" mat-raised-button color="primary">
+                            {{isLoginMode ? 'Login' : 'Sign Up'}}
+                        </button>
+                        <button type="button" (click)="toggleFormStatusHandler()" mat-raised-button color="primary">Switch to {{isLoginMode ? 'sign up' : 'login'}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
